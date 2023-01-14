@@ -9,7 +9,7 @@ function App() {
   return (
     <ChakraProvider>
       <Navbar />
-      <main className="">
+      <main className="bg-primary" style={{ height: "calc(100vh - 40px)" }}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/select-song" element={<SelectSongPage />} />
