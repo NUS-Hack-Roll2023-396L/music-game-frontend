@@ -3,17 +3,19 @@ import HomePage from "./pages/HomePage";
 import SelectSongPage from "./pages/SelectSongPage";
 import Navbar from "./components/Navbar";
 
+import { ChakraProvider } from "@chakra-ui/react";
+
 function App() {
   return (
-    <div className="App">
-      <Navbar/>
+    <ChakraProvider>
+      <Navbar />
       <main className="">
         <Routes>
-          <Route path="/" element={<HomePage/>}/>
-          <Route path="/select-song" element={<SelectSongPage/>}/>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/select-song" element={<SelectSongPage />} />
         </Routes>
       </main>
-    </div>
+    </ChakraProvider>
   );
 }
 
