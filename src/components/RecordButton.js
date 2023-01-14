@@ -10,9 +10,9 @@ export default function RecordButton({song, onStopRecording}) {
   const timerId = useRef();
 
   useEffect(() => {
-  if (recordingTime >= song.duration) {
-    stopRecording()
-  } 
+    if (recordingTime >= song.duration) {
+      stopRecording()
+    } 
   }, [recordingTime])
 
 
@@ -22,10 +22,13 @@ export default function RecordButton({song, onStopRecording}) {
       {isRecording
         ? <BsStopCircle className='cursor-pointer hover:opacity-50' onClick={() => {
           onStopRecording(recordingBlob)
+          song.pause()
           stopRecording()
         }} fontSize={36}/>
         : <BsRecordCircle className='cursor-pointer hover:opacity-50' onClick={() => {
           startRecording()
+          song.currentTime = 0;
+          song.play()
         }} fontSize={36}/>
       }
       {isRecording && <>

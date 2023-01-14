@@ -8,13 +8,15 @@ import { ChakraProvider } from "@chakra-ui/react";
 function App() {
   return (
     <ChakraProvider>
-      <Navbar />
-      <main className="bg-primary" style={{ height: "calc(100vh - 40px)" }}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/select-song" element={<SelectSongPage />} />
-        </Routes>
-      </main>
+      <div className="px-16 py-8 bg-primary">
+        {/* <Navbar /> */}
+        <main className="" style={{ height: "calc(100vh - 40px)" }}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/select-song" element={<SelectSongPage />} />
+          </Routes>
+        </main>
+      </div>
     </ChakraProvider>
   );
 }
