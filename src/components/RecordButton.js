@@ -21,8 +21,8 @@ export default function RecordButton({song, onStopRecording}) {
 
       {isRecording
         ? <BsStopCircle className='cursor-pointer hover:opacity-50' onClick={() => {
-          stopRecording()
           onStopRecording(recordingBlob)
+          stopRecording()
         }} fontSize={36}/>
         : <BsRecordCircle className='cursor-pointer hover:opacity-50' onClick={() => {
           startRecording()

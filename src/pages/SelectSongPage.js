@@ -26,6 +26,7 @@ export default function SelectSongPage() {
   
   const onStopRecording = (songBlob) => {
     console.log(songBlob)
+    console.log(songBlob.type)
   }
 
   return (
