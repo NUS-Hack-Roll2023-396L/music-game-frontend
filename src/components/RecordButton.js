@@ -3,7 +3,7 @@ import {BsRecordCircle, BsStop, BsStopCircle} from 'react-icons/bs'
 import { useAudioRecorder } from 'react-audio-voice-recorder';
 import { addSeconds, intervalToDuration } from 'date-fns';
 
-export default function RecordButton({song, onStopRecording}) {
+export default function RecordButton({song, onStartRecording, onStopRecording,  iconSize}) {
   const [recording, setRecording] = useState(false)
   const {startRecording, stopRecording, toggle, recordingBlob, isRecording, isPaused, recordingTime} = useAudioRecorder()
   const [duration, setDuration] = useState({hours: 0, minutes: 0, seconds: 0})
@@ -20,19 +20,20 @@ export default function RecordButton({song, onStopRecording}) {
     <div className='flex flex-col items-center'>
 
       {isRecording
-        ? <BsStopCircle className='cursor-pointer hover:opacity-50' onClick={() => {
+        ? <BsStopCircle className='cursor-pointer hover:opacity-50 mb-2' onClick={() => {
           onStopRecording(recordingBlob)
           song.pause()
           stopRecording()
-        }} fontSize={36}/>
-        : <BsRecordCircle className='cursor-pointer hover:opacity-50' onClick={() => {
+        }} fontSize={iconSize ?? 36}/>
+        : <BsRecordCircle className='cursor-pointer hover:opacity-50 mb-2' onClick={() => {
+          onStartRecording()
           startRecording()
           song.currentTime = 0;
           song.play()
-        }} fontSize={36}/>
+        }} fontSize={iconSize ?? 36}/>
       }
       {isRecording && <>
-      <p>"recording..."</p>
+      <p>recording...</p>
       
       </>}
       <p>
