@@ -20,12 +20,12 @@ export default function RecordButton({song, onStartRecording, onStopRecording,  
     <div className='flex flex-col items-center'>
 
       {isRecording
-        ? <BsStopCircle className='cursor-pointer hover:opacity-50 mb-2' onClick={() => {
+        ? <BsStopCircle className='cursor-pointer hover:opacity-50 mb-2' color="red" onClick={() => {
           onStopRecording(recordingBlob)
           song.pause()
           stopRecording()
         }} fontSize={iconSize ?? 36}/>
-        : <BsRecordCircle className='cursor-pointer hover:opacity-50 mb-2' onClick={() => {
+        : <BsRecordCircle className='cursor-pointer hover:opacity-50 mb-2' color="red" onClick={() => {
           onStartRecording()
           startRecording()
           song.currentTime = 0;
