@@ -65,9 +65,14 @@ function BannerSection() {
   const onChangeSong = (e) => {
     setLoadedSong(false)
     const selectedSong = songs.find(song => song.id == e.target.value)
-
-    const audio = new Audio(selectedSong.url)
     setSong(selectedSong)
+    console.log(!e.target.value)
+    if (!selectedSong || !e.target.value) {
+      setAudio(null)
+      setSong()
+      return;
+    }
+    const audio = new Audio(selectedSong.url)
     audio.addEventListener("canplay", (e) => {
       setAudio(audio);
       setLoadedSong(true)
@@ -153,7 +158,7 @@ function BannerSection() {
                 // variants={hideShowVariant}
                 // animate={instrument && !recording ? "show" : "hide"}
                 transition={{duration: 0.3}}>
-                <Select placeholder="Select a song" value={song ? song.id: -1} backgroundColor={"white"} mb={2} 
+                <Select placeholder="Select a song" value={song ? song.id: null} backgroundColor={"white"} mb={2} 
                   onChange={onChangeSong}>
                   {songs.map((song) => (
                     <option key={song.name} value={song.id}>{song.name}</option>
