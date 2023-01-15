@@ -8,7 +8,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 function App() {
   return (
     <ChakraProvider>
-      <div className="px-16 py-8 bg-primary h-screen">
+      <div className="flex justify-center items-center px-16 pt-8 pb-16 bg-primary min-h-screen">
         {/* <Navbar /> */}
         <main className="" >
           <Routes>

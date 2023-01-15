@@ -103,7 +103,7 @@ function BannerSection() {
   }
 
   return (
-  <section className='gap-32 mt-32 h-full max-w-md mx-auto'>
+  <section className='gap-32 h-full max-w-md mx-auto'>
     <h1 className='font-bold text-6xl mb-16 text-center fancy'>Harmony Quest</h1>
       
     <AnimatePresence>
@@ -114,7 +114,7 @@ function BannerSection() {
             exit={{opacity: 0, y: 0}}
           >
           <Scoreboard onRetry={retry} onNewSong={reset} />
-          <Divider my={4}/>
+          <Divider my={8}/>
           <Leaderboard/>
         </motion.div>
       ) : (
@@ -140,6 +140,7 @@ function BannerSection() {
 
                 <Select placeholder="Select a instrument" 
                   value={instrument}
+                  size={"lg"}
                   backgroundColor={"white"} mb={2}
                   onChange={onChangeInstrument}>
                   <option value="piano">Piano</option>
@@ -158,7 +159,9 @@ function BannerSection() {
                 // variants={hideShowVariant}
                 // animate={instrument && !recording ? "show" : "hide"}
                 transition={{duration: 0.3}}>
-                <Select placeholder="Select a song" value={song ? song.id: null} backgroundColor={"white"} mb={2} 
+                <Select placeholder="Select a song" 
+                size={"lg"}
+                value={song ? song.id: null} backgroundColor={"white"} mb={2} 
                   onChange={onChangeSong}>
                   {songs.map((song) => (
                     <option key={song.name} value={song.id}>{song.name}</option>
@@ -208,7 +211,7 @@ const Scoreboard = ({onRetry, onNewSong}) => {
 
   return (
     <div className='w-full flex justify-center flex-col items-center'>
-      <h1 className='text-4xl'>Score</h1>
+      <h1 className='text-4xl mb-8'>Score</ h1>
       <div  className='grid grid-cols-4 w-full text-xl gap-4 mb-8'>
         <p className='col-span-3 text-left font-bold'>Accuracy</p>
         <p className='col-span-1 text-right'>98%</p>
